@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>AVELA | Тихая роскошь. Вневременная уверенность.</title>
+  <!-- Подключаем Cormorant Garamond для заголовков и Inter для интерфейса -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #F8F5F1; /* Ivory */
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: #2F2F2F; /* Charcoal */
+      line-height: 1.6;
+      font-weight: 350;
+      letter-spacing: 0.01em;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Типографика */
+    h1, h2, h3, .serif, .logo, .brand-name, .emotional-quote, .promise-text {
+      font-family: 'Cormorant Garamond', 'Times New Roman', serif;
+      font-weight: 400;
+      letter-spacing: -0.01em;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 2.5rem;
+    }
+
+    /* Декоративные линии и воздух */
+    .divider {
+      width: 60px;
+      height: 1px;
+      background-color: #C6A66A; /* Champagne Gold */
+      margin: 2rem 0;
+      opacity: 0.7;
+    }
+
+    .divider.centered {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Шапка */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 2rem 2.5rem;
+      background-color: rgba(248, 245, 241, 0.85);
+      backdrop-filter: blur(10px);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid rgba(217, 210, 199, 0.4);
+    }
+
+    .logo {
+      font-size: 2.2rem;
+      font-weight: 400;
+      color: #24332B; /* Deep Forest */
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      line-height: 1;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 3rem;
+      list-style: none;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: #2F2F2F;
+      font-weight: 400;
+    }
+
+    .nav-links li {
+      cursor: default;
+      transition: color 0.3s ease;
+      position: relative;
+    }
+
+    .nav-links li:hover {
+      color: #C6A66A;
+    }
+
+    .nav-links li::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0%;
+      height: 1px;
+      background-color: #C6A66A;
+      transition: width 0.3s ease;
+    }
+
+    .nav-links li:hover::after {
+      width: 100%;
+    }
+
+    /* Герой-секция */
+    .hero {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-height: 85vh;
+      padding: 2rem 0 4rem;
+      background: linear-gradient(180deg, #F8F5F1 0%, rgba(248, 245, 241, 0.95) 90%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-content {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      max-width: 800px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .hero-eyebrow {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      color: #C6A66A;
+      margin-bottom: 2rem;
+      font-weight: 400;
+    }
+
+    .hero h1 {
+      font-size: clamp(3.5rem, 8vw, 6rem);
+      font-weight: 400;
+      color: #24332B;
+      line-height: 1.1;
+      margin-bottom: 2rem;
+      text-shadow: 0 1px 2px rgba(255,255,255,0.6);
+    }
+
+    .hero h1 i {
+      font-style: italic;
+      color: #2F2F2F;
+    }
+
+    .hero-sub {
+      font-size: 1.2rem;
+      font-weight: 300;
+      color: #2F2F2F;
+      max-width: 480px;
+      margin-bottom: 3rem;
+      line-height: 1.7;
+      border-left: 1px solid #C6A66A;
+      padding-left: 2rem;
+    }
+
+    /* Карточки и блоки */
+    .section {
+      padding: 5rem 0;
+    }
+
+    .section-light {
+      background-color: #F8F5F1;
+    }
+
+    .section-stone {
+      background-color: #D9D2C7; /* Stone */
+      color: #24332B;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .persona-block {
+      background-color: #F8F5F1;
+      padding: 2.5rem;
+      border-radius: 0px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.03);
+      border: 1px solid rgba(217, 210, 199, 0.5);
+      transition: all 0.4s ease;
+    }
+
+    .persona-block:hover {
+      border-color: #C6A66A;
+      box-shadow: 0 15px 35px rgba(36, 51, 43, 0.05);
+    }
+
+    .character-card {
+      text-align: center;
+      padding: 2rem 1rem;
+      background: #F8F5F1;
+      border: 1px solid rgba(198, 166, 106, 0.2);
+      transition: 0.3s;
+    }
+
+    .character-card:hover {
+      border-color: #C6A66A;
+      background: #fff;
+    }
+
+    .character-icon {
+      font-size: 2.2rem;
+      margin-bottom: 1.5rem;
+      color: #C6A66A;
+      font-weight: 300;
+    }
+
+    .character-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6rem;
+      color: #24332B;
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+    }
+
+    .visual-mood {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      margin: 2.5rem 0;
+    }
+
+    .mood-tag {
+      background: transparent;
+      border: 1px solid #C6A66A;
+      color: #24332B;
+      padding: 0.8rem 2rem;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .palette-container {
+      display: flex;
+      gap: 1rem;
+      margin: 2.5rem 0;
+      flex-wrap: wrap;
+    }
+
+    .color-swatch {
+      width: 100px;
+      height: 100px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 0.8rem;
+      font-size: 0.7rem;
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      background: #fff;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+    }
+
+    .swatch-ivory { background-color: #F8F5F1; color: #2F2F2F; border: 1px solid #D9D2C7; }
+    .swatch-forest { background-color: #24332B; color: #F8F5F1; }
+    .swatch-gold { background-color: #C6A66A; color: #fff; }
+    .swatch-charcoal { background-color: #2F2F2F; color: #F8F5F1; }
+    .swatch-stone { background-color: #D9D2C7; color: #24332B; }
+
+    .typography-show {
+      margin: 2rem 0;
+    }
+
+    .font-sample {
+      font-size: 3rem;
+      font-family: 'Cormorant Garamond', serif;
+      color: #24332B;
+      line-height: 1.2;
+    }
+
+    .font-sample-interface {
+      font-family: 'Inter', sans-serif;
+      font-weight: 300;
+      font-size: 1.4rem;
+      color: #2F2F2F;
+      letter-spacing: 0.02em;
+    }
+
+    .promise-block {
+      background: #24332B;
+      color: #F8F5F1;
+      padding: 4rem;
+      text-align: center;
+      margin: 3rem 0;
+    }
+
+    .promise-text {
+      font-size: 2.8rem;
+      font-style: italic;
+      font-weight: 300;
+      line-height: 1.3;
+      color: #D9D2C7;
+    }
+
+    .slogan {
+      font-size: 1.8rem;
+      font-family: 'Cormorant Garamond', serif;
+      color: #C6A66A;
+      font-style: italic;
+      margin-top: 1rem;
+    }
+
+    footer {
+      border-top: 1px solid #D9D2C7;
+      padding: 2.5rem 0;
+      font-size: 0.8rem;
+      color: #2F2F2F;
+      display: flex;
+      justify-content: space-between;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    @media (max-width: 768px) {
+      .grid-2, .grid-4 {
+        grid-template-columns: 1fr;
+      }
+      header {
+        flex-direction: column;
+        gap: 1rem;
+      }
+      .nav-links {
+        gap: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">AVELA</div>
+    <ul class="nav-links">
+      <li>Философия</li>
+      <li>Характер</li>
+      <li>Визуальный код</li>
+      <li>Обещание</li>
+    </ul>
+  </header>
+
+  <main>
+    <!-- Герой: обещание и эмоция -->
+    <section class="hero">
+      <div class="hero-content">
+        <div class="hero-eyebrow">Brand Strategy • 2025</div>
+        <h1>
+          Тихая <i>роскошь.</i><br>
+          Вневременная уверенность.
+        </h1>
+        <p class="hero-sub">
+          Мы уже знаем, что тебе подойдет. Никакого шума — только curated elegance.
+        </p>
+        <div class="divider"></div>
+        <p style="font-style: italic; color: #2F2F2F; max-width: 400px;">
+          «Ты выглядишь идеально. Мы уже все подобрали.»
+        </p>
+      </div>
+    </section>
+
+    <!-- Личность бренда -->
+    <section class="section section-light">
+      <div class="container">
+        <div class="grid-2">
+          <div>
+            <h2 style="font-size: 2.8rem; color: #24332B; font-weight: 400; margin-bottom: 1.5rem;">Личность Avela</h2>
+            <div class="divider"></div>
+            <p style="font-size: 1.2rem; font-weight: 300; max-width: 85%;">
+              Avela — это человек, которому не нужно доказывать свой вкус. 
+              Он выбирает качество, а не количество. Он не кричит о роскоши — он ее воплощает.
+            </p>
+            <p style="margin-top: 2rem; color: #2F2F2F; font-style: italic;">
+              Элегантность без усилий. Спокойная уверенность.
+            </p>
+          </div>
+          <div class="persona-block">
+            <p style="text-transform: uppercase; letter-spacing: 2px; font-size: 0.8rem; color: #C6A66A; margin-bottom: 1rem;">Архетип</p>
+            <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 2rem; color: #24332B;">Правитель / Эстет</h3>
+            <p style="margin-top: 1.5rem; color: #2F2F2F;">
+              Контроль, статус, изысканность. Бренд для тех, кто понимает ценность тишины и деталей.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Характер бренда (сетка) -->
+    <section class="section section-stone">
+      <div class="container">
+        <h2 style="font-size: 2.5rem; color: #24332B; text-align: center; font-weight: 400;">Характер</h2>
+        <div class="divider centered"></div>
+        <div class="grid-4">
+          <div class="character-card">
+            <div class="character-icon">—</div>
+            <div class="character-title">Элегантный</div>
+            <p style="font-size: 0.9rem;">Сдержанная грация</p>
+          </div>
+          <div class="character-card">
+            <div class="character-icon">—</div>
+            <div class="character-title">Утонченный</div>
+            <p style="font-size: 0.9rem;">Внимание к деталям</p>
+          </div>
+          <div class="character-card">
+            <div class="character-icon">—</div>
+            <div class="character-title">Спокойный</div>
+            <p style="font-size: 0.9rem;">Без суеты</p>
+          </div>
+          <div class="character-card">
+            <div class="character-icon">—</div>
+            <div class="character-title">Уверенный</div>
+            <p style="font-size: 0.9rem;">Внутренняя сила</p>
+          </div>
+        </div>
+        <p style="text-align: center; margin-top: 2rem; font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; color: #24332B;">Премиальный. Без компромиссов.</p>
+      </div>
+    </section>
+
+    <!-- Эмоции и визуальный стиль -->
+    <section class="section section-light">
+      <div class="container">
+        <div class="grid-2">
+          <div>
+            <h2 style="font-size: 2.5rem; color: #24332B; font-weight: 400;">Какие эмоции продаём</h2>
+            <div class="divider"></div>
+            <p style="font-size: 1.3rem; font-weight: 300; margin: 1.5rem 0;">
+              Не «будь модным».<br>
+              А <strong style="font-weight: 500; color: #24332B;">«Ты выглядишь идеально. Мы уже все подобрали.»</strong>
+            </p>
+            <p style="color: #2F2F2F;">
+              Уверенность, которая ощущается кожей. Спокойствие за свой выбор.
+            </p>
+          </div>
+          <div style="background: #F8F5F1; padding: 2rem;">
+            <p style="text-transform: uppercase; letter-spacing: 2px; color: #C6A66A; font-size: 0.8rem;">Визуальный стиль</p>
+            <ul style="list-style: none; margin-top: 1.5rem;">
+              <li style="margin-bottom: 1rem; display: flex; align-items: center; gap: 1rem;"><span style="color: #C6A66A;">—</span> Страницы Vogue</li>
+              <li style="margin-bottom: 1rem; display: flex; align-items: center; gap: 1rem;"><span style="color: #C6A66A;">—</span> Много воздуха</li>
+              <li style="margin-bottom: 1rem; display: flex; align-items: center; gap: 1rem;"><span style="color: #C6A66A;">—</span> Лен, мрамор, натуральный свет</li>
+              <li style="margin-bottom: 1rem; display: flex; align-items: center; gap: 1rem;"><span style="color: #C6A66A;">—</span> Архитектура и бутик-отели</li>
+            </ul>
+            <div class="visual-mood">
+              <span class="mood-tag">Лён</span>
+              <span class="mood-tag">Мрамор</span>
+              <span class="mood-tag">Свет</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Цветовая палитра -->
+    <section class="section" style="background-color: #fff;">
+      <div class="container">
+        <h2 style="font-size: 2.5rem; color: #24332B; text-align: center; font-weight: 400;">Цветовая палитра</h2>
+        <div class="divider centered"></div>
+        <div class="palette-container" style="justify-content: center;">
+          <div class="color-swatch swatch-ivory">
+            <span>Ivory</span>
+            <span>#F8F5F1</span>
+          </div>
+          <div class="color-swatch swatch-forest">
+            <span>Deep Forest</span>
+            <span>#24332B</span>
+          </div>
+          <div class="color-swatch swatch-gold">
+            <span>Champagne Gold</span>
+            <span>#C6A66A</span>
+          </div>
+          <div class="color-swatch swatch-charcoal">
+            <span>Charcoal</span>
+            <span>#2F2F2F</span>
+          </div>
+          <div class="color-swatch swatch-stone">
+            <span>Stone</span>
+            <span>#D9D2C7</span>
+          </div>
+        </div>
+        <p style="text-align: center; color: #2F2F2F; margin-top: 1rem; font-style: italic;">
+          Ivory — воздух. Deep Forest — глубина. Gold — акцент роскоши.
+        </p>
+      </div>
+    </section>
+
+    <!-- Типографика -->
+    <section class="section section-light">
+      <div class="container">
+        <h2 style="font-size: 2.5rem; color: #24332B; font-weight: 400; margin-bottom: 1rem;">Типографика</h2>
+        <div class="divider"></div>
+        <div class="grid-2" style="margin-top: 2rem;">
+          <div>
+            <p style="text-transform: uppercase; letter-spacing: 2px; font-size: 0.8rem; color: #C6A66A;">Логотип / Заголовки</p>
+            <div class="font-sample">Cormorant Garamond</div>
+            <p style="margin-top: 0.5rem;">Canela или Cormorant — дорогие fashion-журналы.</p>
+          </div>
+          <div>
+            <p style="text-transform: uppercase; letter-spacing: 2px; font-size: 0.8rem; color: #C6A66A;">Интерфейс</p>
+            <div class="font-sample-interface">Inter / Neue Haas Grotesk</div>
+            <p style="margin-top: 0.5rem;">Современные, очень читаемые шрифты.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Обещание бренда и слоганы -->
+    <section class="section" style="padding-bottom: 1rem;">
+      <div class="container">
+        <div class="promise-block">
+          <p style="text-transform: uppercase; letter-spacing: 3px; font-size: 0.8rem; color: #C6A66A;">Обещание бренда</p>
+          <p class="promise-text">«Мы уже знаем, что тебе подойдет.»</p>
+          <div class="slogan">Curated elegance. <span style="color: #F8F5F1; font-style: normal; margin: 0 0.5rem;">|</span> Luxury, simplified.</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="container">
+    <span>© AVELA — Тихая роскошь</span>
+    <span>Бренд-стратегия 2025</span>
+  </footer>
+</body>
+</html>
